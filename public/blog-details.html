@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Changa One font from google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwindcss + Flowbite -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      id="theme"
+      href="https://flowbite.com/docs/main.css?v=4.0.1"
+    />
+
+    <style type="text/tailwindcss">
+      @theme {
+        --font-heading: "Changa One", cursive;
+        --font-body: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        --color-primary: var(--color-cyan-600);
+      }
+
+      @layer base {
+        body {
+          @apply font-body;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        nav a {
+          @apply font-heading;
+        }
+      }
+
+      @layer components {
+        .active {
+          @apply !text-cyan-600;
+        }
+
+        footer .active {
+          @apply !text-pink-300;
+        }
+
+        .read-more {
+          @apply !text-cyan-600 underline text-sm;
+        }
+
+        .policy {
+          @apply !text-cyan-600 text-sm;
+        }
+      }
+
+      @utility highlight {
+        color: var(--color-primary);
+      }
+
+      .hero-bg {
+        background-image:
+          url("images/logo_bg.png"), url("images/search_bg.png");
+
+        background-repeat: no-repeat;
+
+        background-position:
+          left top,
+          right top;
+      }
+    </style>
+
+    <title>Web1 - Project HomePage</title>
+  </head>
+  <body>
+    <!-- Header Navbar -->
+    <header>
+      <nav class="bg-neutral-primary w-full z-20 top-0 start-0">
+        <div
+          class="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4"
+        >
+          <a
+            href="index.html"
+            class="flex items-center space-x-3 rtl:space-x-reverse"
+          >
+            <img src="images/logo.png" class="h-18" alt="Flowbite Logo" />
+          </a>
+          <div class="flex items-center md:order-2">
+            <button
+              type="button"
+              data-collapse-toggle="navbar-search"
+              aria-controls="navbar-search"
+              aria-expanded="false"
+              class="flex items-center justify-center md:hidden text-body hover:text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-2 focus:ring-neutral-tertiary font-medium leading-5 rounded-base text-sm w-10 h-10 focus:outline-none"
+            >
+              <svg
+                class="w-6 h-6 text-green-500"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
+                />
+              </svg>
+              <span class="sr-only">Search</span>
+            </button>
+            <label for="input-group-1" class="sr-only">Your Email</label>
+            <div class="relative hidden md:block">
+              <div
+                class="absolute inset-y-0 end-2 flex items-center ps-3 pointer-events-none"
+              >
+                <svg
+                  class="w-4 h-4 text-green-500"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-width="2"
+                    d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
+                  />
+                </svg>
+              </div>
+              <input
+                type="text"
+                id="input-group-1"
+                class="block w-full ps-2 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-full focus:ring-brand focus:border-brand px-2.5 py-2 shadow-xs placeholder:text-body"
+                placeholder="Search"
+              />
+            </div>
+            <button
+              data-collapse-toggle="navbar-search"
+              type="button"
+              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
+              aria-controls="navbar-search"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="w-6 h-6"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  d="M5 7h14M5 12h14M5 17h14"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+            id="navbar-search"
+          >
+            <div class="relative mt-3 md:hidden">
+              <div
+                class="absolute inset-y-0 end-0 flex items-center ps-3 pointer-events-none"
+              >
+                <svg
+                  class="w-4 h-4 text-green-500"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-width="2"
+                    d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
+                  />
+                </svg>
+              </div>
+              <input
+                type="text"
+                id="input-group-1"
+                class="block w-full ps-9 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-full focus:ring-brand focus:border-brand px-2.5 py-2 shadow-xs placeholder:text-body"
+                placeholder="Search"
+              />
+            </div>
+            <ul
+              class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary"
+            >
+              <li>
+                <a
+                  href="index.html"
+                  class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600! md:p-0 md:dark:hover:bg-transparent"
+                  aria-current="page"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600! md:p-0 md:dark:hover:bg-transparent"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="gallery.html"
+                  class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600! md:p-0 md:dark:hover:bg-transparent"
+                  >Gallery</a
+                >
+              </li>
+              <li>
+                <a
+                  href="blog.html"
+                  class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600! md:p-0 md:dark:hover:bg-transparent active"
+                  >Blogs</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600! md:p-0 md:dark:hover:bg-transparent"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a
+                  href="register.html"
+                  class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600! md:p-0 md:dark:hover:bg-transparent"
+                  >Register</a
+                >
+              </li>
+              <li>
+                <a
+                  href="login.html"
+                  class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600! md:p-0 md:dark:hover:bg-transparent"
+                  >Login</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Banner when screen size is small -->
+    <section class="bg-[url('images/bg-banner.gif')] bg-repeat h-2"></section>
+
+    <!-- About us -->
+    <section class="w-full px-8">
+      <div
+        class="max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-[6.5fr_3.5fr] py-8 gap-8"
+      >
+        <div class="flex flex-col gap-3 mt-4">
+          <div class="py-4 clear-both">
+            <h2 class="text-3xl font-heading hover:highlight">
+              <a href="blog-details.html?id=44"
+                >Celebrating with Style: The Ultimate Guide to Party Cakes</a
+              >
+            </h2>
+            <p class="pb-4">
+              by Anonymous in
+              <a href="blogs.html?category=34" class="read-more"
+                >Classic Dessert Flavors</a
+              >
+              on Wed, Feb 25, 2026, GMT+7
+              <a href="blog-details.html?id=44#comments" class="read-more"
+                >Comments (2)</a
+              >
+            </p>
+            <div class="w-full aspect-4/3 rounded-xl shrink-0 overflow-hidden">
+              <img
+                src="../images/blog/blog-thumb8.jpg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          <!-- detail -->
+          <div class="text-justify">
+            <h2>Choosing the Perfect Flavor and Design</h2>
+            <p>
+              The first step in creating a memorable party cake is selecting a
+              flavor that will delight your guests. Classic options include rich
+              chocolate, vanilla bean, or a zesty lemon, but don’t be afraid to
+              get creative with flavors like raspberry-chocolate ganache or
+              coconut-lime. Consider your audience’s preferences and any dietary
+              restrictions when choosing your cake flavor. For a more
+              personalized touch, you can also incorporate ingredients that
+              reflect the theme of your party or the guest of honor’s favorite
+              flavors.
+            </p>
+            <p>
+              Once you’ve chosen your flavor, think about the design. Party
+              cakes can range from simple and elegant to elaborate and themed.
+              For a classic look, opt for a smooth buttercream finish with a
+              decorative border or flowers. If you’re aiming for a themed cake,
+              such as one for a child’s birthday party or a holiday celebration,
+              incorporate elements that reflect the theme, like edible
+              decorations or colored frosting. A well-chosen design not only
+              complements your party’s theme but also adds a personal touch that
+              makes the cake even more special.
+            </p>
+            <h2>Crafting the Cake: Baking and Assembly Tips</h2>
+            <p>
+              Baking a party cake involves more than just mixing ingredients;
+              it’s about creating a cake that’s both delicious and visually
+              appealing. Start by selecting high-quality ingredients and
+              following a reliable recipe. For a moist and tender cake, be sure
+              to measure your ingredients accurately and follow the mixing
+              instructions carefully. Grease and line your cake pans to ensure
+              that your cakes come out easily and retain their shape.
+            </p>
+            <p>
+              Once baked, let your cakes cool completely before assembling. If
+              you’re making a multi-layered cake, use a serrated knife to level
+              each layer so they stack evenly. Apply a crumb coat—a thin layer
+              of frosting that seals in any crumbs—before applying your final
+              layer of frosting. This step helps to achieve a smooth and
+              polished finish. For a more intricate design, use piping bags and
+              various decorating tips to create textures, patterns, or even
+              elaborate flower designs.
+            </p>
+            <h2>Decorating Your Party Cake: Adding the Finishing Touches</h2>
+            <p>
+              The decoration of your party cake is where your creativity can
+              truly shine. Start by applying a base layer of frosting in a color
+              that complements your design. For a smooth finish, use an offset
+              spatula and a bench scraper to achieve a clean surface. If you’re
+              incorporating different colors or designs, use piping bags to add
+              details like rosettes, stars, or intricate patterns.
+            </p>
+            <p>
+              For added visual impact, consider using edible decorations such as
+              sprinkles, edible glitter, or fresh fruit. Flowers made from
+              fondant or gum paste can add an elegant touch, while themed
+              toppers or figurines can enhance the party theme. Remember to make
+              your cake transportable if needed; sturdy supports or cake boards
+              can help keep your cake intact during transport and setup.
+            </p>
+            <h2>Serving and Enjoying Your Party Cake</h2>
+            <p>
+              Once your cake is decorated and ready for display, it’s time to
+              enjoy it! Properly store your cake to maintain its freshness,
+              especially if it contains perishable ingredients like cream or
+              fruit. If your cake needs to be transported, use a cake carrier or
+              box to keep it safe and secure.
+            </p>
+            <p>
+              When serving, use a sharp knife to cut clean slices and ensure
+              everyone gets a piece of your delicious creation. Consider
+              offering a variety of beverages to complement the cake, such as
+              coffee, tea, or a festive punch. Don’t forget to capture some
+              photos of your beautifully decorated cake before it’s cut—these
+              memories will be cherished long after the party is over.
+            </p>
+            <h2>Conclusion</h2>
+            <p>
+              A party cake is a centerpiece that adds sweetness and celebration
+              to any occasion. By choosing the right flavor, designing with
+              care, and decorating with creativity, you can create a cake that
+              not only tastes incredible but also looks stunning. Whether you’re
+              baking a classic design or an elaborate themed creation, the
+              effort you put into your party cake will be appreciated by all
+              your guests. So gather your ingredients, get creative, and enjoy
+              the process of making a cake that will be the highlight of your
+              next celebration.
+            </p>
+            <p></p>
+          </div>
+
+          <div></div>
+
+          <!-- comments -->
+          <div class="flex flex-col gap-2.5">
+            <h2 class="font-heading text-3xl">Leave a comment</h2>
+            <form action="#">
+              <label
+                for="message"
+                class="block mb-2.5 text-sm font-medium text-heading"
+                >Your message</label
+              >
+              <textarea
+                id="message"
+                rows="4"
+                class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full p-3.5 shadow-xs placeholder:text-body"
+                placeholder="Write your thoughts here..."
+              ></textarea>
+              <div class="flex justify-between items-center mt-3">
+                <div>
+                  <input type="checkbox" />
+                  <span
+                    >I agress with the
+                    <a href="#" class="policy">terms and conditions</a></span
+                  >
+                </div>
+                <button
+                  type="submit"
+                  class="rounded-xl text-white bg-cyan-500 px-3 py-2"
+                >
+                  Submit Comment
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- comments list-->
+          <div id="comments">
+            <div class="bg-heading text-white py-2 px-4 clear-both rounded-xl">
+              Comments (2)
+            </div>
+            <div class="py-4">
+              <p>
+                <span class="me-8 font-semibold">ABC</span
+                ><span class="float-end">Mon, May 4, 2026, GMT+7</span>
+              </p>
+              <p class="text-justify py-4 clear-end">hello</p>
+              <hr />
+            </div>
+            <div class="py-4">
+              <p>
+                <span class="me-8 font-semibold">Anonymous</span
+                ><span class="float-end">Thu, Feb 26, 2026, GMT+7</span>
+              </p>
+              <p class="text-justify py-4 clear-end">
+                This blog is a fantastic guide for creating the perfect party
+                cake! I love the detailed tips on choosing flavors, baking, and
+                decorating. The suggestions for personalizing the cake and
+                adding finishing touches are especially helpful. Can’t wait to
+                put these ideas into action for my next event!
+              </p>
+              <hr />
+            </div>
+          </div>
+        </div>
+        <div>
+          <h1 class="font-heading text-7xl mb-8">Categories</h1>
+          <ul class="max-w-md space-y-2 text-body list-inside" id="categories">
+            <li class="flex items-center" id="categoryAll">
+              <img src="../images/marker1.png" alt="" class="me-2" />
+              <a href="blogs.html?keyword=" class="active">Show All</a>
+            </li>
+            <li class="flex items-center" id="category31">
+              <img src="../images/marker1.png" alt="" class="me-2" />
+              <a href="blogs.html?category=31&amp;keyword="
+                >Specialty Coffee Blends</a
+              >
+            </li>
+            <li class="flex items-center" id="category32">
+              <img src="../images/marker1.png" alt="" class="me-2" />
+              <a href="blogs.html?category=32&amp;keyword=">Healthy Drinks</a>
+            </li>
+            <li class="flex items-center" id="category33">
+              <img src="../images/marker1.png" alt="" class="me-2" />
+              <a href="blogs.html?category=33&amp;keyword="
+                >Gourmet CupCake Creations</a
+              >
+            </li>
+            <li class="flex items-center" id="category34">
+              <img src="../images/marker1.png" alt="" class="me-2" />
+              <a href="blogs.html?category=34&amp;keyword="
+                >Classic Dessert Flavors</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="w-full bg-[url('images/bg-footer.gif')] bg-repeat bg-gray-600 text-center text-white py-4"
+    >
+      <nav class="max-w-7xl mx-auto flex items-center justify-center">
+        <ul
+          class="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-revers"
+        >
+          <li>
+            <a
+              href="index.html"
+              class="text-white text-heading hover:text-pink-300!"
+              aria-current="page"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="about.html"
+              class="text-white text-heading hover:text-pink-300!"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="gallery.html"
+              class="text-white text-heading hover:text-pink-300!"
+              >Gallery</a
+            >
+          </li>
+          <li>
+            <a href="blog.html" class="active text-heading">Blogs</a>
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="text-white text-heading hover:text-pink-300!"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a
+              href="register.html"
+              class="text-white text-heading hover:text-pink-300!"
+              >Register</a
+            >
+          </li>
+          <li>
+            <a
+              href="login.html"
+              class="text-white text-heading hover:text-pink-300!"
+              >Login</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div class="text-center mt-4 mb-3">
+        Copyright © 2026 by 25880080 - Nguyen Hoang Vu
+      </div>
+    </footer>
+
+    <script src="https://flowbite.com/docs/flowbite.min.js"></script>
+
+    <!-- HandleBar -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+    <!-- Supabase -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="js/mssv.js"></script>
+    <script src="js/api/database.js"></script>
+
+    <script>
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const id = urlParams.get("id");
+    </script>
+  </body>
+</html>
